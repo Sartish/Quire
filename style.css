@@ -1,4 +1,4 @@
-button {
+.new-note {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -9,7 +9,10 @@ button {
     font-size: 16px;
   }
 
-
+  #editor {
+    min-width:40%;
+    border:0px;
+  }
   .saved-notes{
       display: flex;
       flex-direction: row;

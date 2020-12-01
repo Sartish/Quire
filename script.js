@@ -4,11 +4,38 @@ const newNote = document.querySelector('.new-note');
 const list = document.querySelector('.note-list');
 const search =document.querySelector('.search input');
 
+
 //SECOND STEP 
 //We want to generate a new template, where the "notes" we add goes to. So we need to add a new function "generate template "
 //now we want to take this template and inject in the ul. We need to store this in a variable. (html)
 //what we are doing is that we are passing in the "notes" in this generatetemplate 
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
+
+//Adding quill
+
+
+//Make a "clean" option to empty the editor
+let toolbarOptions=[
+        [{ 'header': '1' }, { 'header': '2' }],
+        [{ 'list': 'ordered' }, { 'list': 'bullet'}],
+        ['bold', 'italic']
+];
+
+let quill = new Quill ('#editor', {
+    modules:{
+        toolbar:toolbarOptions
+    },
+    placeholder: 'Type something here',
+    theme:'snow'
+})
+
+var Delta = Quill.import('delta');
+var change = new Delta();
+quill.on('text-change', function(delta) {
+  change = change.compose(delta);
+});
+
+
 
 const generateTemplate = notes => {
 
@@ -29,8 +56,10 @@ newNote.addEventListener('click', e => {
     e.preventDefault();
     const notes = addForm.value;
    // ge invoke the function generate template here, so we can add the notes
+
     generateTemplate(notes)
-    // add local storage 
+    
+
 });
 
 //THIRD STEP: DELETE NOTES
@@ -93,17 +122,3 @@ search.addEventListener('keyup', () => {
     const term = search.value.trim();
     filterNotes(term)
 });
-
-
-
-
-//NEXT STEPS 
-//Add title, and date in an object
-//Add local storage 
-//add css
-// New object. object name spara titel, text och datum
-// let myNote = {
-//     title: '',
-//     text: '',
-//     id: Date.now(),
-// }
