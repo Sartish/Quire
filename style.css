@@ -1,4 +1,12 @@
-button {
+.heading {
+ color:rgb(56, 49, 49);
+ letter-spacing:2px;
+ text-align: center;
+}
+
+
+
+.new-note {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -9,7 +17,73 @@ button {
     font-size: 16px;
   }
 
+  #subToolbar {
 
+  }
+
+  #Normal,
+  #t1,
+  #t2,
+  #t3 {
+      margin: 5px;
+      background-color: #adadad;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      display: inline-block;
+      font-size: 12px;
+      border-radius: 5px;
+  }
+
+  .spanblock {
+    font-family: roborto;
+    color:blue;
+    font-family:Arial;
+    font-size:30px;
+  }
+  .spanblocktwo {
+      color:red;
+  }
+
+/* .addStyle {
+      color:red;
+      font-size:50px;
+  } */
+
+#subToolbar {
+    display: table;
+    border-top: 8px solid #fff;
+    padding: 4px 8px;
+    width: 100%;
+    background-color: #ccc;
+}
+
+#subToolbar :first-child {
+    margin-left: 0px;
+}
+
+#subToolbar button {
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    width: auto;
+    color: #444;
+}
+
+#subToolbar button:hover {
+    color: #06c;
+}
+
+  #toolbar {
+      max-width: 5%;
+  }
+
+
+
+  #editor {
+    min-width:40%;
+    border:0px;
+  }
   .saved-notes{
       display: flex;
       flex-direction: row;
@@ -28,4 +102,4 @@ button {
       display: none !important; 
   }
 
-  
+
