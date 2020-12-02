@@ -1,54 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
-<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
-<!-- <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet"> -->
-<script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
-<link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<title>Document</title>
-</head>
-<body>
-
+    <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!-- <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script> -->
+    <!-- <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet"> -->
+    <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
+    <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
     <h1 class="heading">Quire</h1>
 
+    <div class="saved-notes">
+      <form class="search">
+        <input
+          class="form-control m-auto"
+          type="text"
+          name="search"
+          placeholder="search notes"
+        />
+      </form>
+    </div>
+    <ul class="note-list"></ul>
 
+    <div id="toolbar" class="add-notes"></div>
 
+    <p class="titleTempletes">Templetes:</p>
+    <div id="subToolbar">
+      <!-- <span class="ql-templetes"> -->
+      <button id="Normal">Normal</button>
+      <button id="t1">Temp 1</button>
+      <button id="t2">Temp 2</button>
+      <button id="t3">Temp 3</button>
+      <!-- </span> -->
+    </div>
 
-<div class="saved-notes">
-    <form class="search">
-    <input class="form-control m-auto" type="text" name="search" placeholder="search notes" />
-    </form>  
-</div>
-<ul class="note-list">
-</ul>
+    <div class="add-notes">
+      <div id="editor" class="add" cols="100" rows="20"></div>
+      <br />
+      <button class="new-note">add notes</button>
+    </div>
 
-<div id="toolbar" class="add-notes"></div>
-
-<p class="titleTempletes">Templetes: </p>
-<div id="subToolbar">
-    <!-- <span class="ql-templetes"> -->
-        <button id="Normal">Normal</button>
-        <button id="t1">Temp 1</button>
-        <button id="t2">Temp 2</button>
-        <button id="t3">Temp 3</button>
-    <!-- </span> -->
-</div>
-
-
-
-<div class="add-notes">      
-    <div id="editor" class="add" cols="100" rows="20"></div><br>
-    <button class="new-note">add notes</button>
-</div>
-
-   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="script.js"></script>
-     
-</body>
+  </body>
 </html>

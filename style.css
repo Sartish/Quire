@@ -1,49 +1,47 @@
 .heading {
- color:rgb(56, 49, 49);
- letter-spacing:2px;
- text-align: center;
+  color: rgb(56, 49, 49);
+  letter-spacing: 2px;
+  text-align: center;
 }
 
-
-
 .new-note {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-  }
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
-  #subToolbar {
+/* #subToolbar {
 
-  }
+  } */
 
-  #Normal,
-  #t1,
-  #t2,
-  #t3 {
-      margin: 5px;
-      background-color: #adadad;
-      border: none;
-      color: white;
-      padding: 5px 10px;
-      display: inline-block;
-      font-size: 12px;
-      border-radius: 5px;
-  }
+#Normal,
+#t1,
+#t2,
+#t3 {
+  margin: 5px;
+  background-color: #adadad;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 5px;
+}
 
-  .spanblock {
-    font-family: roborto;
-    color:blue;
-    font-family:Arial;
-    font-size:30px;
-  }
-  .spanblocktwo {
-      color:red;
-  }
+.spanblock {
+  font-family: roborto;
+  color: blue;
+  font-family: Arial;
+  font-size: 30px;
+}
+.spanblocktwo {
+  color: red;
+}
 
 /* .addStyle {
       color:red;
@@ -51,55 +49,49 @@
   } */
 
 #subToolbar {
-    display: table;
-    border-top: 8px solid #fff;
-    padding: 4px 8px;
-    width: 100%;
-    background-color: #ccc;
+  display: table;
+  border-top: 8px solid #fff;
+  padding: 4px 8px;
+  width: 100%;
+  background-color: #ccc;
 }
 
 #subToolbar :first-child {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 #subToolbar button {
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    width: auto;
-    color: #444;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  width: auto;
+  color: #444;
 }
 
 #subToolbar button:hover {
-    color: #06c;
+  color: #06c;
 }
 
-  #toolbar {
-      max-width: 5%;
-  }
+#toolbar {
+  max-width: 5%;
+}
 
+#editor {
+  min-width: 40%;
+  border: 0px;
+}
+.saved-notes {
+  display: flex;
+  flex-direction: row;
+}
 
+.add-notes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  #editor {
-    min-width:40%;
-    border:0px;
-  }
-  .saved-notes{
-      display: flex;
-      flex-direction: row;
-  }
-
-  .add-notes
-  {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-  }
-
-  .filtered
-  {
-      display: none !important; 
-  }
-
-
+.filtered {
+  display: none !important;
+}
