@@ -21,7 +21,7 @@ let toolbarOptions=[
         ['bold', 'italic']
 ];
 
-let quill = new Quill ('#editor', {
+let quill = new Quill ('#editor',  {
     modules:{
         toolbar:toolbarOptions
     },
@@ -29,11 +29,14 @@ let quill = new Quill ('#editor', {
     theme:'snow'
 })
 
+
+
 var Delta = Quill.import('delta');
 var change = new Delta();
 quill.on('text-change', function(delta) {
   change = change.compose(delta);
 });
+
 
 
 
@@ -122,3 +125,52 @@ search.addEventListener('keyup', () => {
     const term = search.value.trim();
     filterNotes(term)
 });
+
+
+let templeteButtonOne = document.querySelector('#t1');
+let templeteButtonTwo = document.querySelector('#t2');
+let templeteButtonThree = document.querySelector('#t3');
+
+let Inline = Quill.import('blots/inline');
+
+class SpanBlock extends Inline{    
+
+    static create(value){
+        let node = super.create();
+        node.setAttribute('class','spanblock');
+        return node;    
+    } 
+}
+
+SpanBlock.blotName = 'spanblock';
+SpanBlock.tagName = 'div';
+Quill.register(SpanBlock);
+
+templeteButtonOne.addEventListener('click', function() {
+
+
+  //apply it to the text
+    let range = quill.getSelection();
+        if(range){
+            quill.formatText(range,'spanblock',true);
+        }else{
+
+        }
+  console.log('Templete One: Clicked!');
+});
+
+
+
+templeteButtonTwo.addEventListener('click', function() {
+
+
+  console.log('Templete Two : Clicked!');
+});
+templeteButtonThree.addEventListener('click', function() {
+  console.log('Templete Three : Clicked!');
+});
+
+
+//     let add = document.querySelector('#t1');
+//   //Only add it ones!!! Needs to know that it has been clicked, if...else...
+//     add.className += "addStyle";
