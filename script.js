@@ -86,7 +86,7 @@ let quill = new Quill("#editor", {
 const generateTemplate = (bajs, title) => {
   const html = `<li>
   <span>${title}</span>
-  <span>${bajs}</span>
+  <span>${keyNote}</span>
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 
@@ -170,3 +170,10 @@ const filterNotes = (term) => {
 // on click change existing html layout for notes (textarea) 
 // on click the html layout will change to a chosen to css attribute, which is connected to the different layouts 
 // on click add css class (add/remove classes on click )
+
+//FRÅGA KRISTAIN OM TEXTAREA QUILL 
+//SÄTTA UPP MÅL OCH PRIORITERA 
+//ADDERA DATUM I OBJEKT
+//DELETE LOCAL STORAGE
+//LÄGG TILL MALLAR
+//FIXA CSS
