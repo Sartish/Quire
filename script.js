@@ -44,18 +44,17 @@ newNote.addEventListener("click", (e) => {
 });
 
 // get my array to a constant 
-// If array not  hämta och lopa igenom, så att alla anteckningar sparas. 
+// If array not get lopa through, so all notes are saved. 
 window.onload = () =>{
   let newNoteObject = localStorage.getItem("keyNote");
   if (newNoteObject !== null) {
 
-// Lopar igenom alla notes och om inte tomma spara det 
+// Loping through all notes 
     newNoteObject = JSON.parse(newNoteObject)
     newNoteObject.forEach((note) => {
       generateTemplate(note.note, note.title)
     });
   } 
-
   
 }
 
@@ -94,7 +93,7 @@ const generateTemplate = (bajs, title) => {
   list.innerHTML += html;
 };
 
-
+//
 
 //THIRD STEP: DELETE NOTES
 //We want to add delete to our added notes, which is found in the UL tag. "list"
@@ -167,4 +166,7 @@ const filterNotes = (term) => {
     .forEach((note) => note.classList.remove("filtered"));
 };
 
-
+//template button for the different layouts 
+// on click change existing html layout for notes (textarea) 
+// on click the html layout will change to a chosen to css attribute, which is connected to the different layouts 
+// on click add css class (add/remove classes on click )
