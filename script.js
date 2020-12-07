@@ -67,19 +67,19 @@ window.onload = () =>{
 //Adding quill
 
 //Make a "clean" option to empty the editor
-let toolbarOptions = [
-  [{ header: "1" }, { header: "2" }],
-  [{ list: "ordered" }, { list: "bullet" }],
-  ["bold", "italic"],
-];
+// let toolbarOptions = [
+//   [{ header: "1" }, { header: "2" }],
+//   [{ list: "ordered" }, { list: "bullet" }],
+//   ["bold", "italic"],
+// ];
 
-let quill = new Quill("#editor", {
-  modules: {
-    toolbar: toolbarOptions,
-  },
-  placeholder: "Type something here",
-  theme: "snow",
-});
+// let quill = new Quill("#editor", {
+//   modules: {
+//     toolbar: toolbarOptions,
+//   },
+//   placeholder: "Type something here",
+//   theme: "snow",
+// });
 
 
 
