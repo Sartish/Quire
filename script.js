@@ -3,7 +3,7 @@ const addForm = document.querySelector('.add');
 const newNote = document.querySelector(".new-note");
 const list = document.querySelector(".note-list");
 const search = document.querySelector(".search input");
-
+// const content = 
 
 //FIRST STEP
 //We need to add eventlistener to the button, så we can add new notes.A varibale newNote, conected to the button
@@ -16,10 +16,11 @@ newNote.addEventListener("click", (e) => {
   const note = addForm.value;
   const title = document.querySelector(".title").value;
   const noteObject ={
-    title : title, 
-    note: note,
+   title: title,
+    addForm: quill.getText(),
     id: Date.now()
   }
+  
 //Get items from what is written in notes and title
 // gets the item "keyNote" in order to able to store it. 
   let notes = localStorage.getItem("key");
@@ -127,11 +128,6 @@ search.addEventListener("keyup", () => {
   filterNotes(term);
 });
 
-
-
-//     let add = document.querySelector('#t1');
-//   //Only add it ones!!! Needs to know that it has been clicked, if...else...
-//     add.className += "addStyle";
 
 
 

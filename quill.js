@@ -62,6 +62,9 @@ var customButtonTwo = document.querySelector('#customTwo');
 var customButtonThree = document.querySelector('#customThree');
 
 let content = document.querySelector('.ql-editor')
+console.log(content)
+let text= quill.getText();
+console.log(text)
 
 customButton.addEventListener('click', function() {
 console.log('clicked')
