@@ -17,25 +17,25 @@ newNote.addEventListener("click", (e) => {
   const title = document.querySelector(".title").value;
   const noteObject ={
     title : title, 
-    note: note
+    note: note,
+    id: Date.now()
   }
-  // Get items from what is written in notes. and title
-
-  let notes = localStorage.getItem("keyNote");
-
+//Get items from what is written in notes and title
+// gets the item "keyNote" in order to able to store it. 
+  let notes = localStorage.getItem("key");
 
   if (notes === null ) {
     notes ='[]'
   } 
   
-  //Parse  makes the string to an array 
+  // Parse  makes the string to an array 
   // Enables us to add notes in existing array (noteObject)
   notes = JSON.parse(notes)
   notes.push(noteObject)
 
   //Stringify will make it to a string. To save since local storage only saves strings 
   let noteObject_serialized = JSON.stringify(notes);
-  localStorage.setItem("keyNote", noteObject_serialized);
+  localStorage.setItem("key", noteObject_serialized);
 
   // const notes = JSON.stringify(quill.getContents());
   // ge invoke the function generate template here, so we can add the notes
@@ -46,7 +46,7 @@ newNote.addEventListener("click", (e) => {
 // get my array to a constant 
 // If array not get lopa through, so all notes are saved. 
 window.onload = () =>{
-  let newNoteObject = localStorage.getItem("keyNote");
+  let newNoteObject = localStorage.getItem("key");
   if (newNoteObject !== null) {
 
 // Loping through all notes 
@@ -83,10 +83,10 @@ let quill = new Quill("#editor", {
 
 
 
-const generateTemplate = (bajs, title) => {
+const generateTemplate = (key, title) => {
   const html = `<li>
   <span>${title}</span>
-  <span>${keyNote}</span>
+  <span>${key}</span>
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 
@@ -107,7 +107,7 @@ list.addEventListener("click", (e) => {
     e.target.parentElement.remove();
     
     //need to remove local storage for only one note 
-    localStorage.removeItem(keyNote.note);
+    localStorage.removeItem(key.note);
   }
 });
 
