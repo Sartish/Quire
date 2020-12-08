@@ -17,6 +17,19 @@
   font-size: 16px;
 }
 
+/* Mallarna, som aktiveras vid klick, 1,2,3 */
+.customOne {
+  font-size: 50px;
+  color: red;
+}
+
+.customTwo {
+  color: blue;
+}
+
+.customThree {
+  color: orange;
+}
 
 #toolbar {
   max-width: 5%;
@@ -69,18 +82,7 @@
 
   }
   
-.ql-active {
-  font-size: 50px;
-  color: red;
-}
 
-.customTwo {
-  color: blue;
-}
-
-.customThree {
-  color: orange;
-}
   #editor {
     position: absolute;
     left: 0;
@@ -91,4 +93,4 @@
   .ql-tooltip.ql-hidden {
     visibility: hidden;
 
-
+  }
