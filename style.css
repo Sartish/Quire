@@ -17,18 +17,22 @@
   font-size: 16px;
 }
 
-/* Mallarna, som aktiveras vid klick, 1,2,3 */
+/* Mallarna, som aktiveras vid klick, N,1,2,3 */
+.normal{
+}
 .customOne {
-  font-size: 50px;
-  color: red;
+  font-family: monospace;
+  color:orange;
 }
 
 .customTwo {
-  color: blue;
+ font-family: Arial;
+ color:red;
 }
 
 .customThree {
-  color: orange;
+  font-family: sans-serif;
+  color:blue;
 }
 
 #toolbar {

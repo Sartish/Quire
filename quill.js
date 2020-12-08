@@ -5,27 +5,25 @@ let quill = new Quill ('#editor',  {
     theme:'bubble'
 })
 
-//how to take the othe classes away when pressing normal???
-
+let customNormal =document.querySelector('#normal');
 let customButton = document.querySelector('#customOne');
 let customButtonTwo = document.querySelector('#customTwo');
 let customButtonThree = document.querySelector('#customThree');
-
 let content = document.querySelector('.ql-editor')
 
-
-customButton.addEventListener('click', function() {
-content.classList.toggle('customOne') 
-// return;
+customNormal.addEventListener('click', function(){
+content.classList='normal';
 });
 
+customButton.addEventListener('click', function() { 
+content.classList='customOne';
+}); 
+
 customButtonTwo.addEventListener('click', function(){
-  content.classList.toggle('customTwo')
+content.classList='customTwo';
 });
 
 customButtonThree.addEventListener('click', function(){
-  content.classList.toggle('customThree')
+content.classList='customThree';
 });
-
-
 
