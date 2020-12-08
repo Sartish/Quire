@@ -3,60 +3,114 @@ const addForm = document.querySelector('.add');
 const newNote = document.querySelector(".new-note");
 const list = document.querySelector(".note-list");
 const search = document.querySelector(".search input");
-// const content = 
+const noteList = document.querySelector('.note-list');
+const titleInput = document.querySelector(".title");
+let allNotes = [];
+let activeNoteID;
+
 
 //FIRST STEP
 //We need to add eventlistener to the button, så we can add new notes.A varibale newNote, conected to the button
 //we need to 'fetch' what is inside the textfield, which is aded as a variable addForm. We use .value
 //We also want ot generate a new HTML template when click, so we add a new HTML template were the notes are added
 
+// saxat från kj start
+function loadNotes() {
+  let notesArrStr = localStorage.getItem('key');
+  if (!notesArrStr) {
+      return;
+  }
+  allNotes = JSON.parse(notesArrStr);
+}
+function saveNotes() {
+  localStorage.setItem('key', JSON.stringify(allNotes));
+}
+function readNote(id) {
+  // hitta ett noteobjekt vars id matchar med argumentet id
+  return allNotes.find(note => note.id == id);
+}
+function setEditor(note) {
+  console.log(note)
+  // uppdatera innehållet i edtiron
+  // sätt activenoteID
+  quill.setContents(note.content);
+  document.querySelector(".title").value = note.title;
+  //setActiveNoteID(note.id);
+
+}
+function setActiveNoteID(id) {
+  activeNoteID = id;
+}
+function updateNote(id) {
+  // skapa INGEN ny note, istället uppdatera en befintlig note
+  let noteObj = allNotes.find(note => note.id == id);
+  noteObj.content = quill.getContents();
+  noteObj.text = quill.getText();
+  noteObj.title = titleInput.value;
+  saveNotes();
+  //renderNotesList(notesArr);
+
+}
+// saxat kj end
 
 newNote.addEventListener("click", (e) => {
   e.preventDefault();
-  const note = addForm.value;
+  if (activeNoteID) {
+    // användaren har redan klickat på en note!
+    // ev. gör en save
+  }
+  const note = quill.getText();
+  const content = quill.getContents();
   const title = document.querySelector(".title").value;
   const noteObject ={
-   title: title,
-    addForm: quill.getText(),
+    title : title,
+    content: content, 
+    note: note,
     id: Date.now()
   }
-  
+  setActiveNoteID(noteObject.id)
 //Get items from what is written in notes and title
 // gets the item "keyNote" in order to able to store it. 
-  let notes = localStorage.getItem("key");
+  //let notes = localStorage.getItem("key");
 
-  if (notes === null ) {
-    notes ='[]'
-  } 
+  //if (notes === null ) {
+  //  notes ='[]'
+  //} 
   
   // Parse  makes the string to an array 
   // Enables us to add notes in existing array (noteObject)
-  notes = JSON.parse(notes)
-  notes.push(noteObject)
+  //notes = JSON.parse(notes)
+  allNotes.push(noteObject)
 
   //Stringify will make it to a string. To save since local storage only saves strings 
-  let noteObject_serialized = JSON.stringify(notes);
-  localStorage.setItem("key", noteObject_serialized);
-
+  //let noteObject_serialized = JSON.stringify(notes);
+  //localStorage.setItem("key", noteObject_serialized);
+  //loadNotes()
   // const notes = JSON.stringify(quill.getContents());
   // ge invoke the function generate template here, so we can add the notes
-  generateTemplate(note, title);
+  generateTemplate(noteObject.id, note, title);
   
 });
 
 // get my array to a constant 
 // If array not get lopa through, so all notes are saved. 
 window.onload = () =>{
+  loadNotes();
   let newNoteObject = localStorage.getItem("key");
   if (newNoteObject !== null) {
 
 // Loping through all notes 
     newNoteObject = JSON.parse(newNoteObject)
     newNoteObject.forEach((note) => {
-      generateTemplate(note.note, note.title)
+      generateTemplate(note.id, note.note, note.title)
     });
   } 
-  
+  noteList.addEventListener('click', function (evt) {
+    let clickedLI = evt.target.closest('li');
+    let clickedID = clickedLI.getAttribute('data-id');
+    setEditor(readNote(clickedID));
+    setActiveNoteID(clickedID);
+})
 }
 
 //SECOND STEP
@@ -65,29 +119,12 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-//Adding quill
-
-//Make a "clean" option to empty the editor
-// let toolbarOptions = [
-//   [{ header: "1" }, { header: "2" }],
-//   [{ list: "ordered" }, { list: "bullet" }],
-//   ["bold", "italic"],
-// ];
-
-// let quill = new Quill("#editor", {
-//   modules: {
-//     toolbar: toolbarOptions,
-//   },
-//   placeholder: "Type something here",
-//   theme: "snow",
-// });
 
 
-
-const generateTemplate = (key, title) => {
-  const html = `<li>
+const generateTemplate = (id, note, title) => {
+  const html = `<li data-id=${id}>
   <span>${title}</span>
-  <span>${key}</span>
+  <span>${note}</span>
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 
@@ -105,10 +142,13 @@ const generateTemplate = (key, title) => {
 //Todo - delete local storage 
 list.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete")) {
+    let clickedLI = e.target.closest('li');
+    let clickedID = clickedLI.getAttribute('data-id');
+    allNotes = allNotes.filter(note => note.id != clickedID)
     e.target.parentElement.remove();
-    
+    saveNotes();
     //need to remove local storage for only one note 
-    localStorage.removeItem(key.note);
+    //localStorage.removeItem(key.note);
   }
 });
 
@@ -127,8 +167,6 @@ search.addEventListener("keyup", () => {
   const term = search.value.trim();
   filterNotes(term);
 });
-
-
 
 
 //FIFTH STEP

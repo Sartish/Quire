@@ -3,7 +3,9 @@
   letter-spacing: 2px;
   text-align: center;
 }
-
+#editor {
+  border: 1px solid black;
+}
 .new-note {
   background-color: #4caf50; /* Green */
   border: none;
@@ -15,6 +17,23 @@
   font-size: 16px;
 }
 
+/* Mallarna, som aktiveras vid klick, N,1,2,3 */
+.normal{
+}
+.customOne {
+  font-family: monospace;
+  color:orange;
+}
+
+.customTwo {
+ font-family: Arial;
+ color:red;
+}
+
+.customThree {
+  font-family: sans-serif;
+  color:blue;
+}
 
 #toolbar {
   max-width: 5%;
@@ -89,4 +108,4 @@
   .ql-tooltip.ql-hidden {
     visibility: hidden;
 
-
+  }
