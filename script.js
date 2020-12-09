@@ -119,23 +119,6 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-//Adding quill
-
-//Make a "clean" option to empty the editor
-// let toolbarOptions = [
-//   [{ header: "1" }, { header: "2" }],
-//   [{ list: "ordered" }, { list: "bullet" }],
-//   ["bold", "italic"],
-// ];
-
-// let quill = new Quill("#editor", {
-//   modules: {
-//     toolbar: toolbarOptions,
-//   },
-//   placeholder: "Type something here",
-//   theme: "snow",
-// });
-
 
 
 const generateTemplate = (id, note, title) => {
@@ -184,13 +167,6 @@ search.addEventListener("keyup", () => {
   const term = search.value.trim();
   filterNotes(term);
 });
-
-
-
-//     let add = document.querySelector('#t1');
-//   //Only add it ones!!! Needs to know that it has been clicked, if...else...
-//     add.className += "addStyle";
-
 
 
 //FIFTH STEP
