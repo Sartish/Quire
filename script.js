@@ -24,6 +24,7 @@ function loadNotes() {
   allNotes = JSON.parse(notesArrStr);
 }
 function saveNotes() {
+  console.log("HEJ från saveNotes")
   localStorage.setItem('key', JSON.stringify(allNotes));
 }
 function readNote(id) {
@@ -31,7 +32,7 @@ function readNote(id) {
   return allNotes.find(note => note.id == id);
 }
 function setEditor(note) {
-  console.log(note)
+  // console.log(note)
   // uppdatera innehållet i edtiron
   // sätt activenoteID
   quill.setContents(note.content);
@@ -46,7 +47,7 @@ function updateNote(id) {
   // skapa INGEN ny note, istället uppdatera en befintlig note
   let noteObj = allNotes.find(note => note.id == id);
   noteObj.content = quill.getContents();
-  noteObj.text = quill.getText();
+  noteObj.note = quill.getText();
   noteObj.title = titleInput.value;
   saveNotes();
   //renderNotesList(notesArr);
@@ -71,6 +72,8 @@ newNote.addEventListener("click", (e) => {
     id: Date.now()
   }
   setActiveNoteID(noteObject.id)
+  
+  
 //Get items from what is written in notes and title
 // gets the item "keyNote" in order to able to store it. 
   //let notes = localStorage.getItem("key");
@@ -83,7 +86,7 @@ newNote.addEventListener("click", (e) => {
   // Enables us to add notes in existing array (noteObject)
   //notes = JSON.parse(notes)
   allNotes.push(noteObject)
-
+  saveNotes();
   //Stringify will make it to a string. To save since local storage only saves strings 
   //let noteObject_serialized = JSON.stringify(notes);
   //localStorage.setItem("key", noteObject_serialized);
@@ -124,11 +127,14 @@ window.onload = () =>{
 
 
 const generateTemplate = (id, note, title) => {
+  // kolla titles längd (.length)
+  // om den är över 15 tecken, ta enbart de 15 första att visa
+  // ev lägg på ...
   const html = `<li data-id=${id}>
+  <input id="${id}" type="checkbox"/>
+  <label for="${id}" class="favorite"></label>
   <span>${title}</span>
-  <span>${note}</span>
-  <span>${tick}</span>
-
+  <!-- <span>${note}</span>-->
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 
