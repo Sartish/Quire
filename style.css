@@ -125,7 +125,7 @@ position: fixed;
 border:right;
 list-style: none;
 /* background-color: rgb(248, 244, 244); */
-max-width: 5%;
+max-width: 50px;
 font-size: 30px;
 color:#232324;
 line-height:2;
@@ -136,13 +136,14 @@ padding-left:2% ;
 }
 
 
-span{
-  /* background-color: RED;  */
+ul>span{
+background-color: red; 
 position: relative;
-max-width: 10%;
+max-width: 50px;
 text-transform: capitalize;
 padding:10%; 
 line-height:3px;
+max-height: 100px;
 
 }
 
