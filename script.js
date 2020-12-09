@@ -23,6 +23,7 @@ function loadNotes() {
   allNotes = JSON.parse(notesArrStr);
 }
 function saveNotes() {
+  console.log("HEJ från saveNotes")
   localStorage.setItem('key', JSON.stringify(allNotes));
 }
 function readNote(id) {
@@ -45,7 +46,7 @@ function updateNote(id) {
   // skapa INGEN ny note, istället uppdatera en befintlig note
   let noteObj = allNotes.find(note => note.id == id);
   noteObj.content = quill.getContents();
-  noteObj.text = quill.getText();
+  noteObj.note = quill.getText();
   noteObj.title = titleInput.value;
   saveNotes();
   //renderNotesList(notesArr);
@@ -69,6 +70,7 @@ newNote.addEventListener("click", (e) => {
     id: Date.now()
   }
   setActiveNoteID(noteObject.id)
+  
 //Get items from what is written in notes and title
 // gets the item "keyNote" in order to able to store it. 
   //let notes = localStorage.getItem("key");
@@ -81,7 +83,7 @@ newNote.addEventListener("click", (e) => {
   // Enables us to add notes in existing array (noteObject)
   //notes = JSON.parse(notes)
   allNotes.push(noteObject)
-
+  saveNotes();
   //Stringify will make it to a string. To save since local storage only saves strings 
   //let noteObject_serialized = JSON.stringify(notes);
   //localStorage.setItem("key", noteObject_serialized);
@@ -119,26 +121,12 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-//Adding quill
-
-//Make a "clean" option to empty the editor
-// let toolbarOptions = [
-//   [{ header: "1" }, { header: "2" }],
-//   [{ list: "ordered" }, { list: "bullet" }],
-//   ["bold", "italic"],
-// ];
-
-// let quill = new Quill("#editor", {
-//   modules: {
-//     toolbar: toolbarOptions,
-//   },
-//   placeholder: "Type something here",
-//   theme: "snow",
-// });
-
 
 
 const generateTemplate = (id, note, title) => {
+  // kolla titles längd (.length)
+  // om den är över 15 tecken, ta enbart de 15 första att visa
+  // ev lägg på ...
   const html = `<li data-id=${id}>
   <span>${title}</span>
   <!-- <span>${note}</span>-->
@@ -184,13 +172,6 @@ search.addEventListener("keyup", () => {
   const term = search.value.trim();
   filterNotes(term);
 });
-
-
-
-//     let add = document.querySelector('#t1');
-//   //Only add it ones!!! Needs to know that it has been clicked, if...else...
-//     add.className += "addStyle";
-
 
 
 //FIFTH STEP

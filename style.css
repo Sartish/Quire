@@ -22,6 +22,23 @@
   font-size: 16px;
 }
 
+/* Mallarna, som aktiveras vid klick, N,1,2,3 */
+.normal{
+}
+.customOne {
+  font-family: monospace;
+  color:orange;
+}
+
+.customTwo {
+ font-family: Arial;
+ color:red;
+}
+
+.customThree {
+  font-family: sans-serif;
+  color:blue;
+}
 
 #toolbar {
   max-width: 5%;
@@ -120,7 +137,7 @@ padding-left:2% ;
 
 
 ul>span{
-background-color: RED; 
+background-color: red; 
 position: relative;
 max-width: 50px;
 text-transform: capitalize;
@@ -177,6 +194,8 @@ max-height: 100px;
 
   }
 
+  
+
   #editor {
     position: absolute;
     left: 0;
@@ -189,6 +208,8 @@ max-height: 100px;
 
   }
 
+
   
 }
   
+
