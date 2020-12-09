@@ -5,6 +5,7 @@ const list = document.querySelector(".note-list");
 const search = document.querySelector(".search input");
 const noteList = document.querySelector('.note-list');
 const titleInput = document.querySelector(".title");
+
 let allNotes = [];
 let activeNoteID;
 
@@ -60,12 +61,13 @@ newNote.addEventListener("click", (e) => {
     // ev. gör en save
   }
   const note = quill.getText();
-  const content = quill.getContents();
+ const content = quill.getContents();
   const title = document.querySelector(".title").value;
-  const noteObject ={
+  const noteObject = {
     title : title,
     content: content, 
     note: note,
+    time:tick,
     id: Date.now()
   }
   setActiveNoteID(noteObject.id)
@@ -125,6 +127,8 @@ const generateTemplate = (id, note, title) => {
   const html = `<li data-id=${id}>
   <span>${title}</span>
   <span>${note}</span>
+  <span>${tick}</span>
+
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 

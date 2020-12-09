@@ -19,6 +19,7 @@
 
 /* Mallarna, som aktiveras vid klick, N,1,2,3 */
 .normal{
+  background-color:white;
 }
 .customOne {
   font-family: monospace;
@@ -58,18 +59,7 @@
 .filtered {
   display: none !important;
 }
-.ql-active {
-  font-size: 50px;
-  color: red;
-}
 
-.customTwo {
-  color: blue;
-}
-
-.customThree {
-  color: orange;
-}
 @media print {
 
   @page {
