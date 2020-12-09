@@ -30,7 +30,7 @@ function readNote(id) {
   return allNotes.find(note => note.id == id);
 }
 function setEditor(note) {
-  console.log(note)
+  // console.log(note)
   // uppdatera innehållet i edtiron
   // sätt activenoteID
   quill.setContents(note.content);
