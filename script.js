@@ -123,6 +123,8 @@ window.onload = () =>{
 
 const generateTemplate = (id, note, title) => {
   const html = `<li data-id=${id}>
+  <input id="${id}" type="checkbox"/>
+  <label for="${id}" class="favorite"></label>
   <span>${title}</span>
   <span>${note}</span>
     <i class="far fa-trash-alt delete"></i>

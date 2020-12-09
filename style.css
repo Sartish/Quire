@@ -165,6 +165,23 @@ line-height:3px;
   
 }
 
+input[type=checkbox]{
+  display: inline-block;
+}
+
+
+
+.label{
+  border: 1px solid black;
+  display: inline-block;
+  padding: 3px;
+  background: url(img/icon-heart-outline.png);
+}
+
+input[type=checkbox]:checked + .label{
+  background: url(img/icon-heart.png);
+}
+
 @media print {
 
   @page {
