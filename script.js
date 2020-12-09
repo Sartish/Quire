@@ -141,7 +141,7 @@ window.onload = () =>{
 const generateTemplate = (id, note, title) => {
   const html = `<li data-id=${id}>
   <span>${title}</span>
-  <span>${note}</span>
+  <!-- <span>${note}</span>-->
     <i class="far fa-trash-alt delete"></i>
     </li>`;
 
