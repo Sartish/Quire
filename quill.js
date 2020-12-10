@@ -2,6 +2,7 @@ let quill = new Quill ('#editor',  {
     modules:{
         toolbar:'#toolbar-container'
     },
+    placeholder: 'Write your note here...',
     theme:'bubble'
 })
 
@@ -9,21 +10,32 @@ let customNormal =document.querySelector('#normal');
 let customButton = document.querySelector('#customOne');
 let customButtonTwo = document.querySelector('#customTwo');
 let customButtonThree = document.querySelector('#customThree');
-let content = document.querySelector('.ql-editor')
+let allContent = document.querySelector('.ql-editor')
+let text= quill.getText();
 
 customNormal.addEventListener('click', function(){
-content.classList='normal';
+allContent.classList='normal';
 });
 
 customButton.addEventListener('click', function() { 
-content.classList='customOne';
+allContent.classList='customOne';
 }); 
 
 customButtonTwo.addEventListener('click', function(){
-content.classList='customTwo';
+allContent.classList='customTwo';
 });
 
 customButtonThree.addEventListener('click', function(){
-content.classList='customThree';
+allContent.classList='customThree';
 });
 
+//Add time and date
+
+const now= new Date;
+const currentTime=now.toLocaleTimeString();
+const currentDate=now.toLocaleDateString();
+// console.log(currentTime, currentDate);
+
+const time =`${currentTime}  ${currentDate}`
+
+console.log(time)
