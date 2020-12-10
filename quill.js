@@ -39,3 +39,4 @@ const currentDate=now.toLocaleDateString();
 const time =`${currentTime}  ${currentDate}`
 
 console.log(time)
+
