@@ -8,7 +8,23 @@ const titleInput = document.querySelector(".title");
 let allNotes = [];
 let activeNoteID;
 
+//popup
+window.addEventListener('DOMContentLoaded', popUpLoad);
+function closePopUp() {
+  let popup = document.querySelector("#popUp")
+  popup.style.display = "none"
+  localStorage.setItem('savePopUp', true);
+  document.body.classList.remove('blurMe');
+}
 
+function popUpLoad() {
+  if (!localStorage.getItem('savePopUp')) {
+    document.getElementById('popUp').classList.toggle('showPopUp');
+    document.body.classList.add('blurMe');
+  }
+  renderNoteList();
+  quill.focus();
+}
 //FIRST STEP
 //We need to add eventlistener to the button, så we can add new notes.A varibale newNote, conected to the button
 //we need to 'fetch' what is inside the textfield, which is aded as a variable addForm. We use .value
@@ -127,6 +143,7 @@ const generateTemplate = (id, note, title) => {
   // kolla titles längd (.length)
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
+  
   const html = `<li data-id=${id}>
   <span>${title}</span>
   <!-- <span>${note}</span>-->
@@ -204,6 +221,8 @@ const filterNotes = (term) => {
     .filter((note) => note.textContent.includes(term))
     .forEach((note) => note.classList.remove("filtered"));
 };
+
+
 
 //template button for the different layouts 
 // on click change existing html layout for notes (textarea) 
