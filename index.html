@@ -20,7 +20,7 @@
   </head>
   <body>
     <h1 class="heading">Quire</h1>
-    <i class="fa fa-search" style="font-size:24px"></i>
+    
     <div class="saved-notes">
       <form class="search">
         <input
@@ -28,16 +28,16 @@
           type="text"
           name="search"
           placeholder="search notes"
-          
         />
       </form>
+       <i class="fa fa-search" style="font-size:24px"></i>
       
     </div>
-    
+   
     <ul class="note-list"></ul>
-    <input class= "title "type="text" placeholder="title">
-    <div class="list-title"></div>
-    <div class="list-text"></div>
+     <input class= "title "type="text" placeholder="Title">
+    <!-- <div class="list-title"></div>
+    <div class="list-text"></div> -->
     
 <div id="time"></div>
 
@@ -55,17 +55,18 @@
   <button id="customTwo">T2</button>
   <button id="customThree">T3</button>
 </div>
-<div id="time"></div>
+<div class="time" id="time"></div>
 
     <div class="add-notes">
       <div id="editor" class="add" cols="100" rows="20"></div>
       <br/>
       <button class="new-note">Save note</button>
+      <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
       <!-- <button class="new-note">new note</button> -->
     </div>
     
 
- <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
+ 
  
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="quill.js"></script>

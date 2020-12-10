@@ -24,7 +24,6 @@ function loadNotes() {
   allNotes = JSON.parse(notesArrStr);
 }
 function saveNotes() {
-  console.log("HEJ från saveNotes")
   localStorage.setItem('key', JSON.stringify(allNotes));
 }
 function readNote(id) {
@@ -49,6 +48,7 @@ function updateNote(id) {
   noteObj.content = quill.getContents();
   noteObj.note = quill.getText();
   noteObj.title = titleInput.value;
+
   saveNotes();
   //renderNotesList(notesArr);
 
@@ -61,6 +61,7 @@ newNote.addEventListener("click", (e) => {
     // användaren har redan klickat på en note!
     // ev. gör en save
   }
+  
   const note = quill.getText();
  const content = quill.getContents();
   const title = document.querySelector(".title").value;
@@ -68,7 +69,6 @@ newNote.addEventListener("click", (e) => {
     title : title,
     content: content, 
     note: note,
-    time:tick,
     id: Date.now()
   }
   setActiveNoteID(noteObject.id)
@@ -130,12 +130,12 @@ const generateTemplate = (id, note, title) => {
   // kolla titles längd (.length)
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
-  const html = `<li data-id=${id}>
-  <input id="${id}" type="checkbox"/>
+  const html = `<li class="listStyle" data-id=${id}>
+   <span class="styleTime">${time}</span>
+    <span class="styleTitle">${title}</span>
+  <input class="checkbox" id="${id}" type="checkbox"/>
   <label for="${id}" class="favorite"></label>
-  <span>${title}</span>
-  <!-- <span>${note}</span>-->
-    <i class="far fa-trash-alt delete"></i>
+  <i class="far fa-trash-alt delete"></i>
     </li>`;
 
   list.innerHTML += html;
