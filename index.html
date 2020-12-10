@@ -16,52 +16,53 @@
     <!-- <link href="//cdn.quilljs.com/1.3.6/quill.core.css" rel="stylesheet"> -->
     <script src="//cdn.quilljs.com/1.3.6/quill.core.js"></script>
     <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.bubble.css">
-    <title>Document</title>
+    <title>Quire</title>
   </head>
   <body>
     <h1 class="heading">Quire</h1>
     
-    <div class="saved-notes">
-      <form class="search">
-        <input
+
+    <section class="columnleft">
+      <button class="fav"></button>
+      <div class="saved-notes">
+        <form class="search">
+          <input
           class="form-control m-auto"
           type="text"
           name="search"
-          placeholder="search notes"
-        />
-      </form>
-       <i class="fa fa-search" style="font-size:24px"></i>
-      
-    </div>
+          placeholder="Search notes"
+          />
+        </form>
+        <i class="fa fa-search" style="font-size:24px"></i>
+      </div>
+    </section>
+    
    
     <ul class="note-list"></ul>
-     <input class= "title "type="text" placeholder="Title">
-    <!-- <div class="list-title"></div>
-    <div class="list-text"></div> -->
+    <input class= "title "type="text" placeholder="Title">
+  
     
-<div id="time"></div>
+    <div id="time"></div>
 
- <div id="toolbar-container">
-     <select class="ql-header">
+    <div id="toolbar-container">
+      <select class="ql-header">
             <option value="1">Header 1</option>
             <option value="2">Header 2</option>
       </select>
-  <button class="ql-bold"></button>
-  <button class="ql-italic"></button>
-  <button class="ql-list" value="ordered"></button>
-  <button class="ql-list" value="bullet"></button>
-</div>
+      <button class="ql-bold"></button>
+      <button class="ql-italic"></button>
+      <button class="ql-list" value="ordered"></button>
+      <button class="ql-list" value="bullet"></button>
+    </div>
 
-<section class="styleButtons">
-  <button id="normal">Normal</button>
-  <button id="customOne">Christmas</button>
-  <button id="customTwo">Arial</button>
-  <button id="customThree">Sans-serif</button>
-  <button class="new-note">Save note</button>
-  <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
-</section>
-
-<div class="time" id="time"></div>
+    <section class="styleButtons">
+      <button id="normal">Normal</button>
+      <button id="customThree">Classic</button>
+      <button id="customTwo">Romantic</button>
+      <button id="customOne">Christmas</button>
+      <button class="new-note">Save note</button>
+      <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
+    </section>
 
     <div class="add-notes">
       <div id="editor" class="add" cols="100" rows="20"></div>

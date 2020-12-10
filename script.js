@@ -131,7 +131,7 @@ const generateTemplate = (id, note, title) => {
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
   const html = `<li class="listStyle" data-id=${id}>
-   <span class="styleTime">${time}</span>
+   <span class="styleTime">${new Date()}</span>
     <span class="styleTitle">${title}</span>
   <input class="checkbox" id="${id}" type="checkbox"/>
   <label for="${id}" class="favorite"></label>
