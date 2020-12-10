@@ -19,6 +19,10 @@
     <title>Document</title>
   </head>
   <body>
+
+<!-- <button onclick="document.getElementById('myInput').value = ''">Clear input field</button> -->
+
+
     <h1 class="heading">Quire</h1>
     
     <div class="saved-notes">
@@ -35,7 +39,7 @@
     </div>
    
     <ul class="note-list"></ul>
-     <input class= "title "type="text" placeholder="Title">
+     <input class="title" id="myInput" type="text" placeholder="Title">
     <!-- <div class="list-title"></div>
     <div class="list-text"></div> -->
     
@@ -57,7 +61,8 @@
   <button id="customOne">Christmas</button>
   <button id="customTwo">Arial</button>
   <button id="customThree">Sans-serif</button>
-  <button class="new-note">Save note</button>
+  <button class="new-note">Save</button>
+  <button type="button" class="reload" onclick="ClearFields();">Clear</button>
   <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
 </section>
 
