@@ -6,6 +6,7 @@ const search = document.querySelector(".search input");
 const noteList = document.querySelector('.note-list');
 const titleInput = document.querySelector(".title");
 
+
 let allNotes = [];
 let activeNoteID;
 
@@ -63,7 +64,7 @@ newNote.addEventListener("click", (e) => {
   }
   
   const note = quill.getText();
- const content = quill.getContents();
+  const content = quill.getContents();
   const title = document.querySelector(".title").value;
   const noteObject = {
     title : title,
@@ -162,7 +163,12 @@ list.addEventListener("click", (e) => {
   }
 });
 
+//Clearing fields when clicking button clear 
+function ClearFields() {
 
+  document.getElementById("myInput").value = "";
+  document.querySelector(".ql-editor p").innerText ="";
+}
 
 //FOURTH STEP: FILTERING THE NOTES
 //We need to get a reference for the input field, where we search for notes.

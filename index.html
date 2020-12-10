@@ -19,6 +19,10 @@
     <title>Quire</title>
   </head>
   <body>
+
+<!-- <button onclick="document.getElementById('myInput').value = ''">Clear input field</button> -->
+
+
     <h1 class="heading">Quire</h1>
     
 
@@ -39,8 +43,14 @@
     
    
     <ul class="note-list"></ul>
+<<<<<<< HEAD
     <input class= "title "type="text" placeholder="Title">
   
+=======
+     <input class="title" id="myInput" type="text" placeholder="Title">
+    <!-- <div class="list-title"></div>
+    <div class="list-text"></div> -->
+>>>>>>> 20b64030216ee196a1874a2a21804c740c30cfba
     
     <div id="time"></div>
 
@@ -49,11 +59,29 @@
             <option value="1">Header 1</option>
             <option value="2">Header 2</option>
       </select>
+<<<<<<< HEAD
       <button class="ql-bold"></button>
       <button class="ql-italic"></button>
       <button class="ql-list" value="ordered"></button>
       <button class="ql-list" value="bullet"></button>
     </div>
+=======
+  <button class="ql-bold"></button>
+  <button class="ql-italic"></button>
+  <button class="ql-list" value="ordered"></button>
+  <button class="ql-list" value="bullet"></button>
+</div>
+
+<section class="styleButtons">
+  <button id="normal">Normal</button>
+  <button id="customOne">Christmas</button>
+  <button id="customTwo">Arial</button>
+  <button id="customThree">Sans-serif</button>
+  <button class="new-note">Save</button>
+  <button type="button" class="reload" onclick="ClearFields();">Clear</button>
+  <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
+</section>
+>>>>>>> 20b64030216ee196a1874a2a21804c740c30cfba
 
     <section class="styleButtons">
       <button id="normal">Normal</button>
