@@ -1,6 +1,10 @@
 .body{
   position: relative;
 }
+#time {
+  margin-left:500px;
+}
+
 .heading {
   color: rgb(56, 49, 49);
   letter-spacing: 10px;
@@ -97,7 +101,8 @@ color:#232324;
 
 .styleTitle {
 text-transform: capitalize;
-
+font-size:30px;
+font-weight: 600;
 }
 
 .styleTitle:hover {
@@ -108,7 +113,10 @@ text-transform: capitalize;
   font-size:10px;
   text-align:right;
 }
-
+.styleNote{
+font-size:20px;
+font-weight: 200;
+}
 .fa-trash-alt{
   font-size:15px;
   text-align:end;
@@ -149,26 +157,35 @@ font-size: 16px;
 .new-note:hover {
   background-color: #5d3426;
 }
+.reload:hover {
+  background-color: #5d3426;
+}
 .styleButtons{
       display:flex;
       flex-direction:column;
       align-items: flex-end;
       margin:20px;
+
 }
 #normal,
 #customOne,
 #customTwo,
 #customThree{
-
- border:none;
- background-color: #E48464;
- color:white;
- margin:5px;
- padding:5px;
+border:none;
+background-color: #E48464;
+color:white;
+margin:5px;
+padding:5px;
 width:150px;
-  border-radius:6px;
-
+border-radius:6px;
 }
+#normal:hover,
+#customOne:hover,
+#customTwo:hover,
+#customThree:hover {
+background-color: #5d3426;
+}
+
 .normal{
   background-color:white;
   border:none;

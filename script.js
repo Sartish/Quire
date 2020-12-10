@@ -125,24 +125,37 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-
-
 const generateTemplate = (id, note, title) => {
+  const shortTitle= title.substring(0,15);
+  const shortNote=note.substring(0,15);
   // kolla titles längd (.length)
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
   const html = `<li class="listStyle" data-id=${id}>
    <span class="styleTime">${new Date()}</span>
     <span class="styleTitle">${title}</span>
+    <span class="styleNote">${note}</span>
+  <input class="checkbox" id="${id}" type="checkbox"/>
+  <label for="${id}" class="favorite"></label>
+  <i class="far fa-trash-alt delete"></i>
+    </li>`;
+const shortHtml = `<li class="listStyle" data-id=${id}>
+   <span class="styleTime">${new Date()}</span>
+    <span class="styleTitle">${shortTitle}</span>
+    <span class="note">${shortNote}</span>
   <input class="checkbox" id="${id}" type="checkbox"/>
   <label for="${id}" class="favorite"></label>
   <i class="far fa-trash-alt delete"></i>
     </li>`;
 
+  if(title.length >= 15 && note.length >= 15) {
+   list.innerHTML += shortHtml;
+  }
+else{
   list.innerHTML += html;
 };
+};
 
-//
 
 //THIRD STEP: DELETE NOTES
 //We want to add delete to our added notes, which is found in the UL tag. "list"
