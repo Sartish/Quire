@@ -17,12 +17,15 @@
     <title>Quire</title>
   </head>
   <body>
-    <main class="header">
-    <h1 class="heading">Quire</h1>
-    </main>
+
+  <main class="mainToolbar">
+      <h1 class="heading">Q</h1>
+      <button class="star"><i id="startIcon" class="far fa-star"></i></button>
+      <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
+  </main>
 
     <section class="columnleft">
-      <div class="saved-notes">
+          <div class="saved-notes">
         <form class="search">
           <input
           class="form-control m-auto"
@@ -31,14 +34,15 @@
           placeholder="Search notes"
           />
         </form>
-      <i class="fa fa-search" style="font-size:24px"></i>
-      </div>
+    <i class="fa fa-search" style="font-size:24px"></i>
+    </div>
       <ul class="note-list"></ul> 
-     <input class="title" id="myInput" type="text" placeholder="Title">
-      <div id="time"></div>
     </section>
-    
   
+  <input class="title" id="myInput" type="text" placeholder="Title">
+
+   <div id="time"></div>
+
   <div id="toolbar-container">
       <select class="ql-header">
             <option value="1">Header 1</option>
@@ -54,11 +58,11 @@
   <section class="styleButtons">
       <button id="normal">Normal</button>
       <button id="customThree">Modern</button>
-      <button id="customTwo">Romatic</button>
+      <button id="customTwo">Romantic</button>
       <button id="customOne">Christmas</button>
       <button class="new-note">Save</button>
       <button type="button" class="reload" onclick="ClearFields();">New Note</button>
-      <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
+      
   </section>
 
   <div class="add-notes">
