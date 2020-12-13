@@ -127,25 +127,27 @@ window.onload = () =>{
 
 const generateTemplate = (id, note, title) => {
   const shortTitle= title.substring(0,15);
-  const shortNote=note.substring(0,15);
+  const shortNote=note.substring(0,10);
   // kolla titles längd (.length)
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
   const html = `<li class="listStyle" data-id=${id}>
-   <span class="styleTime">${new Date()}</span>
+    <input class="checkbox" id="${id}" type="checkbox"/>
+  <label for="${id}" class="favorite"></label>
+  <i class="far fa-trash-alt delete"></i>
+   <span class="styleTime">${time}</span>
     <span class="styleTitle">${title}</span>
     <span class="styleNote">${note}</span>
-  <input class="checkbox" id="${id}" type="checkbox"/>
-  <label for="${id}" class="favorite"></label>
-  <i class="far fa-trash-alt delete"></i>
+
     </li>`;
 const shortHtml = `<li class="listStyle" data-id=${id}>
-   <span class="styleTime">${new Date()}</span>
-    <span class="styleTitle">${shortTitle}</span>
-    <span class="note">${shortNote}</span>
-  <input class="checkbox" id="${id}" type="checkbox"/>
+ <input class="checkbox" id="${id}" type="checkbox"/>
   <label for="${id}" class="favorite"></label>
   <i class="far fa-trash-alt delete"></i>
+   <span class="styleTime">${time}</span>
+    <span class="styleTitle">${shortTitle}</span>
+    <span class="note">${shortNote}</span>
+ 
     </li>`;
 
   if(title.length >= 15 && note.length >= 15) {
