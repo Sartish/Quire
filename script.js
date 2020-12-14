@@ -11,6 +11,24 @@ let allNotes = [];
 let activeNoteID;
 
 
+//popup
+window.addEventListener('DOMContentLoaded', popUpLoad);
+function closePopUp() {
+  let popup = document.querySelector("#popUp")
+  popup.style.display = "none"
+  localStorage.setItem('savePopUp', true);
+  document.body.classList.remove('blurMe');
+}
+
+function popUpLoad() {
+  if (!localStorage.getItem('savePopUp')) {
+    document.getElementById('popUp').classList.toggle('showPopUp');
+    document.body.classList.add('blurMe');
+  }
+  renderNoteList();
+  quill.focus();
+}
+
 //FIRST STEP
 //We need to add eventlistener to the button, så we can add new notes.A varibale newNote, conected to the button
 //we need to 'fetch' what is inside the textfield, which is aded as a variable addForm. We use .value
