@@ -18,8 +18,49 @@
  
 }
 
+img
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:-30%;
+    margin-bottom: -25%;
+    margin-left:80px;
+
+}
+
+.welcome {
+  display: flex;
+  height: 70px;
+  width:500px;
+  color: gray;
+  background-color: 	#E0E0E0;
+  padding: 2px;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+  font-size: small;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 3%;
+  cursor: pointer;
+  margin-left:80px;
+}
+.info-text{
+  
+  letter-spacing: 1px;
+}
+
+.back-popup
+{
+    font-family: helvetica;
+    background-image: url(Background.png);
+    background-repeat: no-repeat;
+
+  
+}
+
+
+
 div {
-  font-size: px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: justify;
 }
@@ -388,4 +429,3 @@ box-shadow: 0 0 10px #719ECE;
   }
 }
   
-
