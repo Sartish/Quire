@@ -59,7 +59,6 @@ img
 }
 
 
-
 div {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: justify;
@@ -139,7 +138,8 @@ div {
   color: rgb(56, 49, 49);
 }
 .filtered {
-  display: none !important;
+  /*display: none !important;*/
+  visibility: hidden;
 }
 .title{
  margin-left: 3%;
@@ -281,7 +281,7 @@ input[type="checkbox"] {
    width: 15px;
    height: px;
  }
- 
+ /*
  .favorite {
    width: 15px;
    height: 15px;
@@ -302,6 +302,7 @@ input[type="checkbox"] {
 .fav .tick::before {
   display: inline;
 }
+*/
 /* Buttons */
 
 .new-note {
