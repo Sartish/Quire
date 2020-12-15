@@ -405,20 +405,18 @@ box-shadow: 0 0 10px #719ECE;
 }
 
 
-
-
-
+ 
 @media print {
-
+ 
   @page {
     margin: 0;
   }
-
+ 
   body {
     visibility: hidden;
   }
-
-
+ 
+ 
 .title * {
   position:relative;
   border:none;
@@ -429,21 +427,31 @@ box-shadow: 0 0 10px #719ECE;
   position: absolute;
   width:100%;
 }
-
+ 
   .ql-editor {
     border: none;
     box-shadow: none;
     position:absolute;
   }
-
+ 
+  #myInput{
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 3% 1% 0 6%;
+ 
+ 
+  }
+ 
   #editor * {
-    margin: 1% 1% 0 1%;
+  
     visibility: visible;
     overflow-y: hidden;
     position: relative;
   }
-
-
+ 
+ 
   #editor::-webkit-scrollbar {
     -ms-overflow-style: none;
     width: 0 !important;
@@ -451,13 +459,15 @@ box-shadow: 0 0 10px #719ECE;
   #editor {
     position: absolute;
     left: 0;
-    top: 0;
+    top: auto;
     width: 100%;
+    margin-top: auto;
+    margin-left: 4%;
   }
-
-  .ql-tooltip.ql-hidden {
-    visibility: hidden;
-
-  }
-}
+ 
+ 
+    .ql-tooltip.ql-hidden {
+      visibility: hidden;
   
+    }
+  }

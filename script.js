@@ -13,7 +13,6 @@ let activeNoteID;
 //popup
 window.addEventListener("DOMContentLoaded", popUpLoad);
 function closePopUp() {
-  console.log("closePP ran")
   let popup = document.querySelector("#popUp");
   popup.style.display = "none";
   localStorage.setItem("savePopUp", true);
@@ -25,7 +24,6 @@ function popUpLoad() {
     document.getElementById("popUp").classList.toggle("showPopUp");
     document.body.classList.add("blurMe");
   }
-  //renderNoteList();
   quill.focus();
 }
 
@@ -242,7 +240,7 @@ const generateTemplate = (id, note, title, checked) => {
  
     </li>`;
 
-  if (title.length >= 15 && note.length >= 15) {
+  if (title.length >= 15 || note.length >= 15) {
     list.innerHTML += shortHtml;
   } else {
     list.innerHTML += html;
