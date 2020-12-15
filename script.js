@@ -12,22 +12,22 @@ let activeNoteID;
 
 
 //popup
-window.addEventListener('DOMContentLoaded', popUpLoad);
-function closePopUp() {
-  let popup = document.querySelector("#popUp")
-  popup.style.display = "none"
-  localStorage.setItem('savePopUp', true);
-  document.body.classList.remove('blurMe');
-}
+// window.addEventListener('DOMContentLoaded', popUpLoad);
+// function closePopUp() {
+//   let popup = document.querySelector("#popUp")
+//   popup.style.display = "none"
+//   localStorage.setItem('savePopUp', true);
+//   document.body.classList.remove('blurMe');
+// }
 
-function popUpLoad() {
-  if (!localStorage.getItem('savePopUp')) {
-    document.getElementById('popUp').classList.toggle('showPopUp');
-    document.body.classList.add('blurMe');
-  }
-  renderNoteList();
-  quill.focus();
-}
+// function popUpLoad() {
+//   if (!localStorage.getItem('savePopUp')) {
+//     document.getElementById('popUp').classList.toggle('showPopUp');
+//     document.body.classList.add('blurMe');
+//   }
+//   renderNoteList();
+//   quill.focus();
+// }
 
 //FIRST STEP
 //We need to add eventlistener to the button, så we can add new notes.A varibale newNote, conected to the button
@@ -88,7 +88,8 @@ newNote.addEventListener("click", (e) => {
     title : title,
     content: content, 
     note: note,
-    id: Date.now()
+    id: Date.now(),
+    time:time,
   }
   setActiveNoteID(noteObject.id)
   
@@ -112,7 +113,7 @@ newNote.addEventListener("click", (e) => {
   //loadNotes()
   // const notes = JSON.stringify(quill.getContents());
   // ge invoke the function generate template here, so we can add the notes
-  generateTemplate(noteObject.id, note, title);
+  generateTemplate(noteObject.id, note, title, time);
   
 });
 
@@ -126,7 +127,7 @@ window.onload = () =>{
 // Loping through all notes 
     newNoteObject = JSON.parse(newNoteObject)
     newNoteObject.forEach((note) => {
-      generateTemplate(note.id, note.note, note.title)
+      generateTemplate(note.id, note.note, note.title, note.time)
     });
   } 
   noteList.addEventListener('click', function (evt) {
@@ -143,7 +144,7 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-const generateTemplate = (id, note, title) => {
+const generateTemplate = (id, note, title,time) => {
   const shortTitle= title.substring(0,15);
   const shortNote=note.substring(0,10);
   // kolla titles längd (.length)
