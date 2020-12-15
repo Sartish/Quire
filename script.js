@@ -88,7 +88,8 @@ newNote.addEventListener("click", (e) => {
     title : title,
     content: content, 
     note: note,
-    id: Date.now()
+    id: Date.now(),
+    checked: false
   }
   setActiveNoteID(noteObject.id)
   
@@ -143,9 +144,23 @@ window.onload = () =>{
 //what we are doing is that we are passing in the "notes" in this generatetemplate
 //we target the ul tag and add the HTML template that we have generated in second step 'html'
 
-const generateTemplate = (id, note, title) => {
+const generateTemplate = (id, note, title,checked) => {
   const shortTitle= title.substring(0,15);
   const shortNote=note.substring(0,10);
+
+  ////////////////////////////////////////////////////////////////
+  //Kolla om noten är favoriserad/checked
+  let noteObj = allNotes.find(note => note.id == id);
+  console.log(noteObj);
+  const isChecked = noteObj.checked ? 'fav' :'';
+  //noteObj.setAttribute('class', `todo-item ${isChecked}`);
+  console.log(isChecked);
+  //const node = document.createElement("li");
+
+  //node.setAttribute("class", `noteObject${isChecked}`);
+  ////////////////////////////////////////////////////////////////
+
+
   // kolla titles längd (.length)
   // om den är över 15 tecken, ta enbart de 15 första att visa
   // ev lägg på ...
@@ -176,6 +191,51 @@ else{
 };
 };
 
+////////////////////////////////////////////////////////////////
+//to-do add an eventlistner that can check if the checkbox is checked/unchecked
+function toggleFav(key){
+  const index = allNotes.findIndex(item => item.id === Number(key));
+  console.log(index);
+  allNotes[index].checked = !allNotes[index].checked;
+  generateTemplate(allNotes[index]);
+  localStorage.setItem("allNotes",JSON.stringify(allNotes));
+  console.log(index)
+  console.log(allNotes[index].checked)
+}
+
+
+const check_list = document.querySelector(".note-list");
+check_list.addEventListener("click", e =>{
+  if (e.target.classList.contains("favorite")){
+    const itemKey = e.target.parentElement.dataset.key;
+    console.log("checked clicked")
+    toggleFav(itemKey);
+  }
+})
+////////////////////////////////////////////////////////////////
+//to-do add an eventlistner that can check if the checkbox is checked/unchecked
+// list.addEventListener("click", (e) =>{
+//  if (e.target.classList.contains("checkbox")){
+//    let clickedLI = e.target.closest("li");
+//    let clickedID = clickedLI.getAttribute("data-id");
+//    allNotes.id = clickedID;
+//    const isChecked = clickedID.checked ? 'done' : '';
+//    clickedID.setAttribute('class', `clickedID ${isChecked}`);
+
+//    console.log("checkbox clicked");
+//    console.log(checked);
+//    console.log(clickedID);
+//    getChecked();
+//    saveNotes();
+// }});
+
+// function getChecked(id){
+//   if (id = checked)
+//   {
+//     localStorage.setItem(checked.id = true);
+//   }
+// }
+////////////////////////////////////////////////////////////////
 
 //THIRD STEP: DELETE NOTES
 //We want to add delete to our added notes, which is found in the UL tag. "list"
