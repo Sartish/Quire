@@ -106,12 +106,7 @@ newNote.addEventListener("click", (e) => {
   //notes = JSON.parse(notes)
   allNotes.push(noteObject);
   saveNotes();
-  //Stringify will make it to a string. To save since local storage only saves strings
-  //let noteObject_serialized = JSON.stringify(notes);
-  //localStorage.setItem("key", noteObject_serialized);
-  //loadNotes()
-  // const notes = JSON.stringify(quill.getContents());
-  // ge invoke the function generate template here, so we can add the notes
+ 
   generateTemplate(noteObject.id, note, title);
 });
 
@@ -124,10 +119,7 @@ window.onload = () => {
   });
   setInterval(function() {
     if (change.length() > 0) {
-      //console.log('Saving changes', change);
-      // Save the entire updated text to localStorage
-      //const data = JSON.stringify(quill.getContents())
-      //localStorage.setItem('storedText', data);
+
       if (activeNoteID) {
         // användaren har redan klickat på en note!
         // ev. gör en save
@@ -191,11 +183,6 @@ function renderNotesList() {
 
 
 }
-//SECOND STEP
-//We want to generate a new template, where the "notes" we add goes to. So we need to add a new function "generate template "
-//now we want to take this template and inject in the ul. We need to store this in a variable. (html)
-//what we are doing is that we are passing in the "notes" in this generatetemplate
-//we target the ul tag and add the HTML template that we have generated in second step 'html'
 
 const generateTemplate = (id, note, title, checked) => {
   const shortTitle = title.substring(0, 15);
@@ -206,22 +193,7 @@ const generateTemplate = (id, note, title, checked) => {
   let noteObj = allNotes.find((note) => note.id == id);
   //console.log(noteObj);
   const isChecked = noteObj.checked ? "fav" : "";
-  //noteObj.setAttribute('class', `todo-item ${isChecked}`);
-  //console.log(isChecked);
-  //const node = document.createElement("li");
-
-  //node.setAttribute("class", `noteObject${isChecked}`);
-  ////////////////////////////////////////////////////////////////
-
-
-  // <i class="fa fa-star" aria-hidden="true"></i>
-// <i class="fa fa-star-o" aria-hidden="true"></i>
-  // kolla titles längd (.length)
-  // om den är över 15 tecken, ta enbart de 15 första att visa
-  // ev lägg på ...
-  /*
-  <input class="checkbox" id="${id}" name="${id}" type="checkbox" ${noteObj.checked ? 'checked' : ''}/>
-  <label for="${id}" class="favorite"></label>*/
+ 
   const html = `<li class="listStyle" data-id=${id}>
   <i class="favorite fa${noteObj.checked ? 's' : 'r'} fa-star" aria-hidden="true"></i>
   <i class="far fa-trash-alt delete"></i>
@@ -231,14 +203,14 @@ const generateTemplate = (id, note, title, checked) => {
 
     </li>`;
   const shortHtml = `<li class="listStyle" data-id=${id}>
- <input class="checkbox" id="${id}" type="checkbox"/>
-  <label for="${id}" class="favorite"></label>
+  <i class="favorite fa${noteObj.checked ? 's' : 'r'} fa-star" aria-hidden="true"></i>
   <i class="far fa-trash-alt delete"></i>
    <span class="styleTime">${time}</span>
     <span class="styleTitle">${shortTitle}</span>
-    <span class="note">${shortNote}</span>
- 
+    <span class="styleNote">${shortNote}</span>
+
     </li>`;
+  
 
   if (title.length >= 15 || note.length >= 15) {
     list.innerHTML += shortHtml;
@@ -247,8 +219,7 @@ const generateTemplate = (id, note, title, checked) => {
   }
 };
 
-////////////////////////////////////////////////////////////////
-//to-do add an eventlistner that can check if the checkbox is checked/unchecked
+
 function toggleFav(key) {
   console.log("toggleFav called with arg:" + key)
   const index = allNotes.findIndex((item) => item.id === Number(key));
@@ -264,6 +235,85 @@ function toggleFav(key) {
 }
 
 const check_list = document.querySelector(".note-list");
+
+
+//Clearing fields when clicking button clear
+function ClearFields() {
+  document.getElementById("myInput").value = "";
+  //document.querySelector(".ql-editor p").innerText = "";
+  quill.setText('');
+  const note = quill.getText();
+  const content = quill.getContents();
+  const title = document.querySelector(".title").value;
+  const noteObject = {
+    title: title,
+    content: content,
+    note: note,
+    id: Date.now(),
+    checked: false,
+  };
+  setActiveNoteID(noteObject.id);
+  allNotes.push(noteObject);
+  saveNotes();
+  generateTemplate(noteObject.id, note, title);
+
+}
+
+search.addEventListener("keyup", () => {
+  const term = search.value.trim();
+  filterNotes(term);
+});
+
+const filterNotes = (term) => {
+  Array.from(list.children)
+    .filter((note) => !note.textContent.includes(term))
+    .forEach((note) => note.classList.add("filtered"));
+
+  Array.from(list.children)
+    .filter((note) => note.textContent.includes(term))
+    .forEach((note) => note.classList.remove("filtered"));
+};
+
+
+
+
+
+
+
+//template button for the different layouts
+// on click change existing html layout for notes (textarea)
+// on click the html layout will change to a chosen to css attribute, which is connected to the different layouts
+// on click add css class (add/remove classes on click )
+
+
+// /FIFTH STEP
+//Creating a callback function that triggers everytime we write something in search
+//We want to target what ever is in the li, in order to remove the li
+//We therefore listen to the ul (the parent) tag which contains the lists of notes (children)
+//We need to filter through arrays, so we convert the li's to arrays (Array.from) method
+//it takes the children html collection and turns it into and array
+//when doing this we enable the possiblity to use filter and forEch method
+//We are chaining the methods, therefore switch rows
+
+//Filter method, return us a new array, whatever items we are keeping into it
+//we want to filter out what is not matching what I type
+//notes.content looks for text inside the span tag
+//we compare the term, with the text content and it will return true or false
+//we reverse the boolean "negate it"
+//filtering arrays which does not contain the notes
+
+//For each
+//we want to filter out the notes that do match. so we can remove the filter class
+//we add a for Ech method to filter out the notes that does not match. We apply a class, so they disapear
+//filter class rule is added in the css.
+//FOURTH STEP: FILTERING THE NOTES
+//We need to get a reference for the input field, where we search for notes.
+//we need reference to input and not search, because we will listen to a keyup event and not a submit event
+//So we need the search class and listen to the input inside it.
+
+//Key up event that is listening to what ever we type in the search input field
+//When ever a user type a leter int he field, a callback function fires targeting existing li notes
+//we call this callback function filterNotes everytime a user preces letter on keyboard
 //check_list.addEventListener("click", (e) => {
   /* if (e.target.classList.contains("favorite")) {
     const itemKey = e.target.parentElement.dataset.key;
@@ -315,81 +365,39 @@ const check_list = document.querySelector(".note-list");
   } */
 //});
 
-//Clearing fields when clicking button clear
-function ClearFields() {
-  document.getElementById("myInput").value = "";
-  //document.querySelector(".ql-editor p").innerText = "";
-  quill.setText('');
-  const note = quill.getText();
-  const content = quill.getContents();
-  const title = document.querySelector(".title").value;
-  const noteObject = {
-    title: title,
-    content: content,
-    note: note,
-    id: Date.now(),
-    checked: false,
-  };
-  setActiveNoteID(noteObject.id);
-  allNotes.push(noteObject);
-  saveNotes();
-  generateTemplate(noteObject.id, note, title);
+////////////////////////////////////////////////////////////////
+//to-do add an eventlistner that can check if the checkbox is checked/unchecked
 
-}
+ //noteObj.setAttribute('class', `todo-item ${isChecked}`);
+  //console.log(isChecked);
+  //const node = document.createElement("li");
 
-//FOURTH STEP: FILTERING THE NOTES
-//We need to get a reference for the input field, where we search for notes.
-//we need reference to input and not search, because we will listen to a keyup event and not a submit event
-//So we need the search class and listen to the input inside it.
+  //node.setAttribute("class", `noteObject${isChecked}`);
+  ////////////////////////////////////////////////////////////////
 
-//Key up event that is listening to what ever we type in the search input field
-//When ever a user type a leter int he field, a callback function fires targeting existing li notes
-//we call this callback function filterNotes everytime a user preces letter on keyboard
 
-search.addEventListener("keyup", () => {
-  const term = search.value.trim();
-  filterNotes(term);
-});
+  // <i class="fa fa-star" aria-hidden="true"></i>
+// <i class="fa fa-star-o" aria-hidden="true"></i>
+  // kolla titles längd (.length)
+  // om den är över 15 tecken, ta enbart de 15 första att visa
+  // ev lägg på ...
+  /*
+  <input class="checkbox" id="${id}" name="${id}" type="checkbox" ${noteObj.checked ? 'checked' : ''}/>
+  <label for="${id}" class="favorite"></label>*/
 
-//FIFTH STEP
-//Creating a callback function that triggers everytime we write something in search
-//We want to target what ever is in the li, in order to remove the li
-//We therefore listen to the ul (the parent) tag which contains the lists of notes (children)
-//We need to filter through arrays, so we convert the li's to arrays (Array.from) method
-//it takes the children html collection and turns it into and array
-//when doing this we enable the possiblity to use filter and forEch method
-//We are chaining the methods, therefore switch rows
+  //SECOND STEP
+//We want to generate a new template, where the "notes" we add goes to. So we need to add a new function "generate template "
+//now we want to take this template and inject in the ul. We need to store this in a variable. (html)
+//what we are doing is that we are passing in the "notes" in this generatetemplate
+//we target the ul tag and add the HTML template that we have generated in second step 'html'
+      //console.log('Saving changes', change);
+      // Save the entire updated text to localStorage
+      //const data = JSON.stringify(quill.getContents())
+      //localStorage.setItem('storedText', data);
 
-//Filter method, return us a new array, whatever items we are keeping into it
-//we want to filter out what is not matching what I type
-//notes.content looks for text inside the span tag
-//we compare the term, with the text content and it will return true or false
-//we reverse the boolean "negate it"
-//filtering arrays which does not contain the notes
-
-//For each
-//we want to filter out the notes that do match. so we can remove the filter class
-//we add a for Ech method to filter out the notes that does not match. We apply a class, so they disapear
-//filter class rule is added in the css.
-
-const filterNotes = (term) => {
-  Array.from(list.children)
-    .filter((note) => !note.textContent.includes(term))
-    .forEach((note) => note.classList.add("filtered"));
-
-  Array.from(list.children)
-    .filter((note) => note.textContent.includes(term))
-    .forEach((note) => note.classList.remove("filtered"));
-};
-
-//template button for the different layouts
-// on click change existing html layout for notes (textarea)
-// on click the html layout will change to a chosen to css attribute, which is connected to the different layouts
-// on click add css class (add/remove classes on click )
-
-//FRÅGA KRISTAIN OM TEXTAREA QUILL
-//SÄTTA UPP MÅL OCH PRIORITERA
-//ADDERA DATUM I OBJEKT
-//DELETE LOCAL STORAGE
-//LÄGG TILL MALLAR
-//FIXA CSS
+       //Stringify will make it to a string. To save since local storage only saves strings
+  //let noteObject_serialized = JSON.stringify(notes);
+  //localStorage.setItem("key", noteObject_serialized);
+  //loadNotes()
+  // const notes = JSON.stringify(quill.getContents());
+  // ge invoke the function generate template here, so we can add the notes

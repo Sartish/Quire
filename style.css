@@ -158,11 +158,15 @@ input[type=text]:focus {
   }
 
 
- .form-control{
-  /* box-shadow: 1px 1px 3px gray; */
-  font-size:40px;
-}
-
+  .form-control{
+    /* box-shadow: 1px 1px 3px gray; */
+    font-size:30px;
+      color:#232324;
+      font-weight:bold;
+      margin-bottom:16px;
+      border:1px dotted #E48464;
+      width:250px;
+  }
 /* Listan till vänster */
 .mainToolbar {
   display: flex;
@@ -244,39 +248,30 @@ margin-top:25px;
 font-size:20px;
 font-weight: 200;
 /* max-width: 250px; */
+
 }
-.fa-trash-alt::before{
-  font-size:15px;
+.styleNote:hover {
+  color: darkgray;
+}
+.fa-star {
+  font-size:20px;
+  text-align:right;
+}
+.fa-star:hover{
+  cursor:pointer;
+  color:darkgray;
+}
+.fa-trash-alt{
+  font-size:18px;
   position:absolute;
-   margin:5px;
-  left:19%;
+  left:21%;
 }
 .fa-trash-alt:hover {
   color:darkgray;
   cursor:pointer;
 }
-/* input[type=checkbox] {
-  
-  position:absolute;
-  left:18%;
-} */
 
-/* .checkbox{
-  border: 1px solid black;
-  display: inline-block;
-  padding: 3px;
-  background: url(img/icon-heart-outline.png);
-}
 
-input[type=checkbox]:checked + .label{
-  background: url(img/icon-heart.png);
-
-} */
-
-input[type="checkbox"] {
-  display: none;
- }
- 
  svg {
    width: 15px;
    height: px;
