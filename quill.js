@@ -36,7 +36,11 @@ const currentTime=now.toLocaleTimeString();
 const currentDate=now.toLocaleDateString();
 // console.log(currentTime, currentDate);
 
+<<<<<<< HEAD
 const time =`${currentTime}    ${currentDate}`
+=======
+//const time =`${currentTime}  ${currentDate}`
+>>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
 
 console.log(time)
 
