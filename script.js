@@ -10,14 +10,8 @@ let Delta = Quill.import('delta');
 let allNotes = [];
 let activeNoteID;
 
-<<<<<<< HEAD
-
-popup
-window.addEventListener('DOMContentLoaded', popUpLoad);
-=======
 //popup
 window.addEventListener("DOMContentLoaded", popUpLoad);
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
 function closePopUp() {
   let popup = document.querySelector("#popUp");
   popup.style.display = "none";
@@ -95,23 +89,12 @@ newNote.addEventListener("click", (e) => {
     content: content,
     note: note,
     id: Date.now(),
-<<<<<<< HEAD
-    time:time,
-    checked: false,
-  }
-  setActiveNoteID(noteObject.id)
-  
-  
-//Get items from what is written in notes and title
-// gets the item "keyNote" in order to able to store it. 
-=======
     checked: false,
   };
   setActiveNoteID(noteObject.id);
 
   //Get items from what is written in notes and title
   // gets the item "keyNote" in order to able to store it.
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
   //let notes = localStorage.getItem("key");
 
   //if (notes === null ) {
@@ -123,19 +106,8 @@ newNote.addEventListener("click", (e) => {
   //notes = JSON.parse(notes)
   allNotes.push(noteObject);
   saveNotes();
-<<<<<<< HEAD
-  //Stringify will make it to a string. To save since local storage only saves strings 
-  //let noteObject_serialized = JSON.stringify(notes);
-  //localStorage.setItem("key", noteObject_serialized);
-  //loadNotes()
-  // const notes = JSON.stringify(quill.getContents());
-  // ge invoke the function generate template here, so we can add the notes
-  generateTemplate(noteObject.id, note, title, time);
-  
-=======
  
   generateTemplate(noteObject.id, note, title);
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
 });
 
 // get my array to a constant
@@ -170,11 +142,7 @@ window.onload = () => {
     // Loping through all notes
     newNoteObject = JSON.parse(newNoteObject);
     newNoteObject.forEach((note) => {
-<<<<<<< HEAD
-      generateTemplate(note.id, note.note, note.title, note.time)
-=======
       generateTemplate(note.id, note.note, note.title);
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
     });
   }
   noteList.addEventListener("click", function (evt) {
@@ -214,13 +182,7 @@ function renderNotesList() {
   });
 
 
-<<<<<<< HEAD
-const generateTemplate = (id, note, title,time,checked) => {
-  const shortTitle= title.substring(0,15);
-  const shortNote=note.substring(0,10);
-=======
 }
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
 
 const generateTemplate = (id, note, title, checked) => {
   const shortTitle = title.substring(0, 15);

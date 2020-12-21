@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Noteapplication. Save my notes.">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -18,7 +19,7 @@
     <title>Quire</title>
   </head>
   <body>
-    <div id='popUp' id='alert' class='popUpHide'>
+    <header id='popUp' id='alert' class='popUpHide'>
       <div id='forBtn'>
           <span class='closeBtn' onclick='closePopUp()'>&times;</span>
 
@@ -31,34 +32,38 @@
           </div>
             
       </div>
-    </div>
+    </header>
     
-  <main class="mainToolbar">
+  <aside class="mainToolbar">
       <h1 class="heading">Q</h1>
-      <button class="star"><i id="startIcon" class="far fa-star"></i></button>
-      <button onclick="window.print();" class="print"><i class="fas fa-print"></i></button>
-  </main>
+      <button class="star" aria-label="Show-favourites"><i id="startIcon" class="far fa-star"></i></button>
+      <button onclick="window.print();" class="print" aria-label="Print"><i class="fas fa-print"></i></button>
+  </aside>
 
     <section class="columnleft">
           <div class="saved-notes">
-        <form class="search">
-          <input
-          class="form-control m-auto"
-          type="text"
-          name="search"
-          placeholder="Search notes"
-          />
-        </form>
-    <i class="fa fa-search" style="font-size:24px"></i>
-    </div>
-      <ul class="note-list"></ul> 
+            <label>
+              <form class="search">
+                  <input
+                  class="form-control m-auto"
+                  type="text"
+                  name="search"
+                  placeholder="Search notes"
+                  />
+              </form>
+            </label>
+          <i class="fa fa-search" style="font-size:24px"></i>
+          </div>
+        <ul class="note-list"></ul> 
     </section>
   
-  <input class="title" id="myInput" type="text" placeholder="Title">
+    <label>
+      <input class="title" id="myInput" type="text" placeholder="Title">
+    </label>
 
    <div id="time"></div>
 
-  <div id="toolbar-container">
+  <section id="toolbar-container">
       <select class="ql-header">
             <option value="1">Header 1</option>
             <option value="2">Header 2</option>
@@ -67,7 +72,7 @@
       <button class="ql-italic"></button>
       <button class="ql-list" value="ordered"></button>
       <button class="ql-list" value="bullet"></button>
-  </div>
+  </section>
 
 
   <section class="styleButtons">
@@ -80,9 +85,9 @@
       
   </section>
 
-  <div class="add-notes">
+  <figure class="add-notes">
       <div id="editor" class="add" cols="100" rows="20"></div>
-  </div>
+  </figure>
     
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="quill.js"></script>

@@ -54,8 +54,6 @@ img
     font-family: helvetica;
     background-image: url(Background.png);
     background-repeat: no-repeat;
-
-  
 }
 
 
@@ -87,7 +85,6 @@ div {
 
 .closeBtn:hover {
   color: rgb(11, 12, 11);
-
 }
 
 .blurMe > *:not(#popUp){
@@ -303,7 +300,7 @@ font-weight: 200;
 .new-note {
   margin-top:300px;
   margin-right:5px;
-  background-color: #E48464;
+  background-color: #854f3e;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -317,7 +314,7 @@ font-weight: 200;
 .reload {
 margin-top:20px;
 margin-right:5px;
-background-color: #E48464;
+background-color:#854f3e;
 border: none;
 color: white;
 padding: 15px 32px;
@@ -350,7 +347,7 @@ border-radius:5px;
 #customTwo,
 #customThree{
 border:none;
-background-color: #E48464;
+background-color: #854f3e;
 color:white;
 margin:5px;
 padding:5px;
