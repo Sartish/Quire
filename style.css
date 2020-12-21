@@ -406,8 +406,6 @@ box-shadow: 0 0 10px #719ECE;
  
   body {
     visibility: hidden;
-<<<<<<< HEAD
-=======
   }
  
  
@@ -423,7 +421,6 @@ box-shadow: 0 0 10px #719ECE;
 }
  
   .ql-editor {
->>>>>>> d133df5a95300f47ddc0df2412f2ff92c1c8a765
     border: none;
     box-shadow: none;
     position:absolute;
@@ -465,4 +462,126 @@ box-shadow: 0 0 10px #719ECE;
       visibility: hidden;
   
     }
+  }
+
+  @media (max-width: 400px) {
+  /* sparade anteckningar  */
+.note-list{
+  margin:10px;
+  float:left;
+  padding:20px;
+  list-style:none;
+  background-color: rgb(255, 248, 248);
+  width: 300px;
+  font-size: 30px;
+  color:#232324;
+  flex-direction:column;
+  }
+  .styleButtons{
+    display:flex;
+    flex-direction:column;
+    float:right;
+    margin:20px;
+}
+  
+  .listStyle {
+    background-color: rgb(255, 248, 248);
+    border:2px solid white;
+    margin:15px;
+    min-height:150px;
+    padding:5px;
+    display:flex;
+    flex-direction:column;
+    box-shadow: 0 0 15px #f5c2a8;
+  }
+  li{
+    width: 200px;
+
+  }
+ 
+  .title{
+    margin-left: 10%;
+     width: 80%;
+     font-size: 35px;
+     color:#232324;
+     font-weight:bold;
+     margin-bottom:16px;
+     border:none;
+   }
+
+   .search {
+    margin-left:30px;
+    
+  }
+
+#normal,
+#customOne,
+#customTwo,
+#customThree{
+border:none;
+background-color: #854f3e;
+color:white;
+margin:5px;
+padding:10px;
+width:100px;
+border-radius:6px;
+}
+#normal:hover,
+#customOne:hover,
+#customTwo:hover,
+#customThree:hover {
+background-color: #5d3426;
+}
+
+
+.new-note {
+  margin-top:5px;
+  margin-right:5px;
+  background-color: #854f3e;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:5px;
+}
+
+.reload {
+margin-top:20px;
+margin:1px;
+background-color:#854f3e;
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+border-radius:5px;
+}
+.styleButtons{
+  padding: 150px;
+  margin:1px;
+}
+
+.form-control{
+  /* box-shadow: 1px 1px 3px gray; */
+  font-size:30px;
+    color:#232324;
+    font-weight:bold;
+    margin-bottom:16px;
+    border:1px dotted #E48464;
+    width:250px;
+}
+/* .mainToolbar {
+  display: flex;
+  
+  background-color: #E48464;
+  width:10%;
+  height:800px;
+  float:left;
+  } */
+
   }
