@@ -1,4 +1,6 @@
+
 /*POPUP*/
+
 .popUpHide{
   display: none;
   position: absolute;
@@ -279,7 +281,7 @@ font-weight: 200;
 
  svg {
    width: 15px;
-   height: px;
+   /* height: px; */
  }
  /*
  .favorite {
@@ -443,7 +445,6 @@ box-shadow: 0 0 10px #719ECE;
   }
  
   #editor * {
-  
     visibility: visible;
     overflow-y: hidden;
     position: relative;
@@ -575,9 +576,6 @@ width:80px;
 #customThree:hover {
 background-color: #5d3426;
 margin: 0% 1% 0 5%;
-
-
-
 }
 
 .customOne {
