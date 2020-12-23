@@ -14,11 +14,15 @@ let allContent = document.querySelector('.ql-editor')
 let text= quill.getText();
 
 customNormal.addEventListener('click', function(){
-allContent.classList='normal';
+    allContent.classList.remove('customOne');
+    allContent.classList.remove('customTwo');
+    allContent.classList.remove('customThree');
 });
 
 customButton.addEventListener('click', function() { 
-allContent.classList='customOne';
+allContent.classList.add('customOne');
+allContent.classList.remove('customTwo');
+allContent.classList.remove('customThree');
 }); 
 
 customButtonTwo.addEventListener('click', function(){
@@ -34,5 +38,3 @@ allContent.classList='customThree';
 const now= new Date;
 const currentTime=now.toLocaleTimeString();
 const currentDate=now.toLocaleDateString();
-
-

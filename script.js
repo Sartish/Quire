@@ -46,7 +46,15 @@ function readNote(id) {
   return allNotes.find((note) => note.id == id);
 }
 function setEditor(note) {
-  
+  if (note.template === 'customOne') {
+    allContent.classList.add('customOne');
+  allContent.classList.remove('customTwo');
+  allContent.classList.remove('customThree');   
+  } else {
+    allContent.classList.remove('customOne');
+    allContent.classList.remove('customTwo');
+    allContent.classList.remove('customThree');
+  }
   quill.setContents(note.content);
   document.querySelector(".title").value = note.title;
   
@@ -60,7 +68,12 @@ function updateNote(id) {
   noteObj.content = quill.getContents();
   noteObj.note = quill.getText();
   noteObj.title = titleInput.value;
-
+  if (allContent.classList.contains('customOne')) {
+    noteObj.template = 'customOne'
+  } else {
+    noteObj.template = 'normal';
+  }
+  
   saveNotes();
   
 }
@@ -85,6 +98,7 @@ newNote.addEventListener("click", (e) => {
     note: note,
     id: Date.now(),
     checked: false,
+    template: 'normal'
   };
   setActiveNoteID(noteObject.id);
 
@@ -105,10 +119,10 @@ window.onload = () => {
     if (change.length() > 0) {
 
       if (activeNoteID) {
-        
+        console.log("autosave!")
         updateNote(activeNoteID);
         renderNotesList();
-        setActiveNoteID(null)
+        //setActiveNoteID(null)
       }
       change = new Delta();
     }
@@ -155,21 +169,18 @@ window.onload = () => {
   });
 };
 function renderNotesList() {
-  if (clickedStar = true)
+  if (clickedStar)
   {
     noteList.innerHTML ="";
-    arrayByFav.forEach((note) => {
+    allNotes.filter(note => note.checked).forEach((note) => {
       generateTemplate(note.id, note.note, note.title);
     });;
-  }
-  else if(clickedStar = false){
+  } else {
   noteList.innerHTML ="";
   allNotes.forEach((note) => {
     generateTemplate(note.id, note.note, note.title);
   });
 }
-
-
 }
 
 const generateTemplate = (id, note, title) => {
@@ -212,7 +223,7 @@ function toggleFav(key) {
   allNotes[index].checked = !allNotes[index].checked;
  
   saveNotes();
-  noteList.innerHTML = "";
+  //noteList.innerHTML = "";
   renderNotesList();
 }
 
@@ -247,9 +258,10 @@ search.addEventListener("keyup", () => {
 });
 
 star.addEventListener("click",() =>{
+  //console.log("STar clicked!" + clickedStar + "OBS BEFORE TOGGLE")
   clickedStar = !clickedStar;
-  
-  
+  // todo: visa för användaren att "favoritläget" är aktivt
+  /*
   function filterByFav(noteObj){
     if (noteObj.checked){
       return true;
@@ -261,8 +273,9 @@ star.addEventListener("click",() =>{
   
   arrayByFav = allNotes.filter(filterByFav);
   console.log("allNotes",allNotes,"arrayByFav",arrayByFav)
-  noteList.innerHTML = "";
-  renderNotesList(arrayByFav);
+  */
+  //noteList.innerHTML = "";
+  renderNotesList();
 });
 
 const filterNotes = (term) => {
