@@ -1,4 +1,6 @@
+
 /*POPUP*/
+
 .popUpHide{
   display: none;
   position: absolute;
@@ -268,7 +270,8 @@ font-weight: 200;
 .fa-trash-alt{
   font-size:18px;
   position:absolute;
-  left:21%;
+  margin-left:230px;
+
 }
 .fa-trash-alt:hover {
   color:darkgray;
@@ -278,7 +281,7 @@ font-weight: 200;
 
  svg {
    width: 15px;
-   height: px;
+   /* height: px; */
  }
  /*
  .favorite {
@@ -347,6 +350,7 @@ border-radius:5px;
       flex-direction:column;
       float:right;
       margin:20px;
+     
 }
 
 #normal,
@@ -370,7 +374,7 @@ background-color: #5d3426;
 
 
 .customOne {
-font-family:comic sans MS;
+font-family:Georgia;
 background:url(xmasbackground.jpg);
 color:rgb(187, 22, 22, 0.7);
 /* list-style-type:"🎄"; */
@@ -388,9 +392,6 @@ box-shadow: 0 0 10px #719ECE;
    overflow: hidden;
    outline:none;
 }
-
-
-
 .customTwo {
  font-family: Bookman;
  letter-spacing: 3px;
@@ -444,7 +445,6 @@ box-shadow: 0 0 10px #719ECE;
   }
  
   #editor * {
-  
     visibility: visible;
     overflow-y: hidden;
     position: relative;
@@ -471,6 +471,23 @@ box-shadow: 0 0 10px #719ECE;
     }
   }
 
+
+  /* @media (max-width:1100px){
+
+    .note-list{
+      background-color:blue;
+      width:200px;
+      display:flex;
+      flex-direction:column; 
+    }
+    .styleButtons{
+      display:flex;
+      flex-direction:row;
+      background-color:red;
+    }
+
+
+  } */
 /* IPHONE 6/7/8 VY */
 
   @media (max-width: 600px) {
@@ -559,9 +576,6 @@ width:80px;
 #customThree:hover {
 background-color: #5d3426;
 margin: 0% 1% 0 5%;
-
-
-
 }
 
 .customOne {
