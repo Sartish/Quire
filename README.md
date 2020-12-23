@@ -16,10 +16,12 @@ You can also search for your notes by entering your search in the search input f
 You can also use the templates you the right “normal” “modern” “classic” “christmas” to style the text field to make the notes come to life
 the site is responsive, and will be visible on mobile and desctop view
 
- 
-Here is an example what the page looks like in desktop view. The template “christmas” have been added. There is a title and a text. This note is stored and we are able to edit whenever we want. 
+https://quire-notebook.netlify.app/
+Here is an example what the page looks like in desktop view. Store your favorite notes where ever and whenever!
 
-To run the code you have to download the code in the zip file on Github or clone the code down. You have to enter the index.html and run the code in the browser through live server. 
+To run the site you have two options: 
+1) Use the domain link above 👆 
+2) you have to download the code in the zip file on Github or clone the code down.  You have to enter the index.html and run the code in the browser through live server. 
 
 
 Link to our Trello: https://trello.com/b/9UH8KI6j/folder-dreamteam
