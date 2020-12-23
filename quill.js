@@ -29,14 +29,10 @@ customButtonThree.addEventListener('click', function(){
 allContent.classList='customThree';
 });
 
-//Add time and date
+
 
 const now= new Date;
 const currentTime=now.toLocaleTimeString();
 const currentDate=now.toLocaleDateString();
-// console.log(currentTime, currentDate);
 
-//const time =`${currentTime}  ${currentDate}`
-
-// console.log(time)
 
