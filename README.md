@@ -1,7 +1,4 @@
 
-
-Read.me file
-
 Quire is a notebook online. Developer for anyone who wants to write important notes.
 
 To use 
@@ -17,13 +14,7 @@ You can use the toolbar in the textfield to make the text bold, italic or make b
 You are able to click on the star to mark your favourite notes, which you can filter through the large star in the toolbar
 You can also search for your notes by entering your search in the search input field
 You can also use the templates you the right “normal” “modern” “classic” “christmas” to style the text field to make the notes come to life
-the site is responsive, and will be visible on screens (px)
-
-
-
-
-
-
+the site is responsive, and will be visible on mobile and desctop view
 
  
 Here is an example what the page looks like in desktop view. The template “christmas” have been added. There is a title and a text. This note is stored and we are able to edit whenever we want. 
