@@ -262,7 +262,8 @@ font-weight: 200;
 .fa-trash-alt{
   font-size:18px;
   position:absolute;
-  left:21%;
+  margin-left:230px;
+
 }
 .fa-trash-alt:hover {
   color:darkgray;
@@ -341,6 +342,7 @@ border-radius:5px;
       flex-direction:column;
       float:right;
       margin:20px;
+     
 }
 
 #normal,
@@ -382,9 +384,6 @@ box-shadow: 0 0 10px #719ECE;
    overflow: hidden;
    outline:none;
 }
-
-
-
 .customTwo {
  font-family: Bookman;
  letter-spacing: 3px;
@@ -465,6 +464,23 @@ box-shadow: 0 0 10px #719ECE;
     }
   }
 
+
+  /* @media (max-width:1100px){
+
+    .note-list{
+      background-color:blue;
+      width:200px;
+      display:flex;
+      flex-direction:column; 
+    }
+    .styleButtons{
+      display:flex;
+      flex-direction:row;
+      background-color:red;
+    }
+
+
+  } */
 /* IPHONE 6/7/8 VY */
 
   @media (max-width: 400px) {
