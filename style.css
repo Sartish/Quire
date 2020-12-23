@@ -100,6 +100,9 @@ img
   letter-spacing: 10px;
   text-align: center;
   font-size:50px;
+  margin-left:8px;
+
+
 }
 
 
@@ -124,13 +127,16 @@ img
 .search {
   margin-left:35px;
 }
+
 .saved-notes {
   display: flex;
   flex-direction: row;
   background-color: rgb(255, 248, 248);
-  width:340px;
+  width:325px;
   padding-top:50px;
+  padding-bottom:50px;
 }
+
 .fa {
   color: rgb(56, 49, 49);
 }
@@ -200,18 +206,18 @@ float:left;
 }
 
 /* Listan med sparade anteckningar */
-
 .note-list{
-margin:0px;
-float:left;
-padding:20px;
-list-style: none;
-background-color: rgb(255, 248, 248);
-width: 300px;
-font-size: 30px;
-color:#232324;
-flex-direction:column;
-}
+  margin:0px;
+  float:left;
+  padding:40px 20px;
+  list-style: none;
+  background-color: white;
+  width: 300px;
+  font-size: 30px;
+  color:#232324;
+  flex-direction:column;
+  
+  }
 
 .listStyle {
   background-color: rgb(255, 248, 248);
@@ -467,7 +473,7 @@ box-shadow: 0 0 10px #719ECE;
 
 /* IPHONE 6/7/8 VY */
 
-  @media (max-width: 400px) {
+  @media (max-width: 600px) {
   /* sparade anteckningar  */
 .note-list{
   margin:10px;
