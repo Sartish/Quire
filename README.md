@@ -27,7 +27,7 @@ To run the site you have two options:
 Link to our Trello: https://trello.com/b/9UH8KI6j/folder-dreamteam
 
 Contributers
-Sara Carlstein, Rebecca Åberg, Therese Bjärgrim, Vanessa Martinez, Samira Ahmed.
+Sara Carlstein, Rebecka Åberg, Therese Bjärgrim, Vanessa Martinez, Samira Ahmed.
 Fe20 Frontend developer KYH
 
 ---
